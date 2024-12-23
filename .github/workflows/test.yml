@@ -17,7 +17,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
@@ -27,5 +26,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install dependencies
-      run: npm install --no-package-lock
-    - run: npm test
+      run: npm install
+    - name: Run tests
+      run: npm test
